@@ -16,6 +16,10 @@ class UpdatePackagesTable extends Migration
         Schema::table('packages', function (Blueprint $table) {
             // eseguo un update per la voce cost in costs
             $table->renameColumn('cost', 'costs')->change();
+            $table->string('name')->nullable()->change();
+            $table->string('location')->nullable()->change();
+            $table->smallInteger('num_people')->nullable()->change();
+            $table->smallInteger('cost')->nullable()->change();
         });
     }
 
@@ -28,6 +32,10 @@ class UpdatePackagesTable extends Migration
     {
         Schema::table('packages', function (Blueprint $table) {
             $table->renameColumn('costs', 'cost');
+            $table->string('name');
+            $table->string('location');
+            $table->smallInteger('num_people');
+            $table->smallInteger('cost');
         });
     }
 }
